@@ -1,37 +1,36 @@
+
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var session = require('express-session');
+const session = require('express-session');
 
-var recipesRouter = require('./routes/recipes');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/auth');
 
 var app = express();
 
 app.use(session({
-    secret: 'FdzvG2o9cXl42OYocqurNNonhObVfaIf',
+    secret: '808670664a400230b22154a0cb043c9f7a1e412d6222fbc8af4e5b3a17c072bb',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: process.env.NODE_ENV === 'production' },
+    cookie: { secure: false }
 }));
+
+app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Credentials', true);
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:5500');
+    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    res.header('Access-Control-Allow-Headers', 'Authorization,X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+    next();
+});
+
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-// Rotas principais
-app.use('/api/recipes', recipesRouter);
 app.use('/api/users', usersRouter);
-
-// Tratamento de erros
-app.use((req, res, next) => {
-    res.status(404).json({ error: 'Not Found' });
-});
-
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ error: 'Internal Server Error' });
-});
+app.use('/api/auth', loginRouter);
 
 module.exports = app;
