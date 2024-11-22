@@ -21,23 +21,29 @@
 </head>
 <body>
     <form id="form">
-        <label for="country_name">Country Name</label>
-        <input type="text" name="country_name" id="country_name">
-        <button type="submit">Search</button>
+        <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <button type="submit">Login</button>
     </form>
-    <table id="countries">
-        <thead>
-            <tr>
-                <th>Common Name</th>
-                <th>Official Name</th>
-                <th>Is UN Member</th>
-            </tr>
-        </thead>
-    </table>
+
+    <h1>Receita</h1>
+    <div id="meal-container">
+
+    </div>
+
 
     <script src="api/API.js"></script>
     <script src="api/Auth.js"></script>
     <script src="functions.js"></script>
     <script src="main.js"></script>
+</body>
 </body>
 </html>

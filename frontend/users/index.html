@@ -20,39 +20,19 @@
     </style>
 </head>
 <body>
-    <form id="form">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required>
-        </div>
+    <h1>Bem-vindo, <span id="user-name"></span>!</h1>
+    <button id="logout-button">Logout</button>
+    <input type="button" value="Like">
+    <h1>Receita</h1>
+    <div id="meal-container">
 
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-
-        <button type="submit">Save</button>
-    </form>
+    </div>
 
 
-    <table id="users">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Options</th>
-            </tr>
-        </thead>
-    </table>
-
-    <script src="../api/API.js"></script>
-    <script src="../api/User.js"></script>
+    <script src="api/API.js"></script>
+    <script src="api/Auth.js"></script>
     <script src="functions.js"></script>
     <script src="main.js"></script>
+</body>
 </body>
 </html>

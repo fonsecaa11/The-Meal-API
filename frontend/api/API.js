@@ -60,7 +60,7 @@ class API {
         }
 
         if(response.status == 401) {
-            return window.location.replace("/esgts_is/str/str_4/frontend/");
+            return window.location.replace("http://127.0.0.1:3000/str/str_4/frontend/");
         }
 
         if(response.status == 422) {
