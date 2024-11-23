@@ -32,21 +32,26 @@ async function fetchCategories() {
 function renderCategories(data) {
     const mealContainer = document.getElementById("meal-container");
     
+
+
     if (data.categories && data.categories.length > 0) {
         const category = data.categories[0]; // Access the first category
         
-        // Render the category's details
+        mealContainer.innerHTML = ""; 
+
+        // foreach para a array passada pela api request
         data.categories.forEach(category => {
-        // Create a div to hold each category's details
+
+        // Cria um div para as informações de cada categoria
         const categoryDiv = document.createElement("div");
         categoryDiv.classList.add("category-container");
 
-        // Create and append the category name (h2)
+        // Cria e anex o nome das categorias (h2)
         const categoryName = document.createElement("h2");
         categoryName.textContent = category.strCategory;
         categoryDiv.appendChild(categoryName);
 
-        // Create and append the description (p)
+        // Cria e anexa os detalhes da descrição (p)
         const categoryDescription = document.createElement("p");
         categoryDescription.innerHTML = `<strong>Categoria:</strong> ${category.strCategory}`;
         categoryDiv.appendChild(categoryDescription);
@@ -56,14 +61,14 @@ function renderCategories(data) {
         categoryDetails.innerHTML = `<strong>Cozinha:</strong> ${category.strCategoryDescription}`;
         categoryDiv.appendChild(categoryDetails);
 
-        // Create and append the category image (img)
+        // Cria e anexa a imagem da categoria (img)
         const categoryImage = document.createElement("img");
         categoryImage.src = category.strCategoryThumb;
         categoryImage.alt = category.strCategory;
         categoryImage.width = 300;
         categoryDiv.appendChild(categoryImage);
 
-        // Append the created category div to the meal container
+        // Anexar o div da categoria criada ao container de refeições
         mealContainer.appendChild(categoryDiv);
         });
     } else {
