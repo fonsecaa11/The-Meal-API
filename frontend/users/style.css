@@ -1,0 +1,71 @@
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 15px;
+}
+
+body{
+    background-color: #012A36;
+    color:white;
+    align-items: center;
+    justify-content: center;
+
+}
+
+head{
+    align-items: center;
+}
+
+#randomMeal{
+    background-color: #D8DBE2;
+    border-radius: 75px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px; /* Width of the button */
+    height: 50px;
+    text-transform: uppercase;
+    text-decoration-color: white;
+}
+#randomMeal:hover{
+    background-color: darkgreen;
+}
+#categories{
+    background-color: #D8DBE2;
+    border-radius: 75px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px; /* Width of the button */
+    height: 50px;
+    text-transform: uppercase;
+    text-decoration-color: white;
+}
+#categories:hover{
+    background-color: darkgreen;
+}
+
+#meal-container > div{
+    text-align: center;
+    justify-content: center;
+
+}
+
+#meal-container > div > #instructions{
+    width: 500px; /* Set the width of the cube */
+    height: 300px; /* Set the height of the cube to be equal */
+    display: block;
+    overflow: auto;
+    margin-left: 675px;
+}
+
+
+
+
+

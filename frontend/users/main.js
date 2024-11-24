@@ -6,9 +6,74 @@ async function fetchRandomMeal() {
         const data = await response.json();
 
         
-        renderMeal(data);
+       renderMeal(data);
     } catch (error) {
         console.error('Erro ao buscar a refeição:', error);
+    }
+}
+async function fetchCategories() {
+    try {
+        const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
+        const data = await response.json();
+
+        console.log(data);
+
+        if (data.categories && data.categories.length > 0) {
+            renderCategories(data);
+        } else {
+            console.error("No categories found in the API response.");
+        }
+
+    } catch (error) {
+        console.error('Erro ao buscar a refeição:', error);
+    }
+}
+
+function renderCategories(data) {
+    const mealContainer = document.getElementById("meal-container");
+    
+
+
+    if (data.categories && data.categories.length > 0) {
+        const category = data.categories[0]; // Access the first category
+        
+        mealContainer.innerHTML = ""; 
+
+        // foreach para a array passada pela api request
+        data.categories.forEach(category => {
+
+        // Cria um div para as informações de cada categoria
+        const categoryDiv = document.createElement("div");
+        categoryDiv.classList.add("category-container");
+
+        // Cria e anex o nome das categorias (h2)
+        const categoryName = document.createElement("h2");
+        categoryName.textContent = category.strCategory;
+        categoryDiv.appendChild(categoryName);
+
+        // Cria e anexa os detalhes da descrição (p)
+        const categoryDescription = document.createElement("p");
+        categoryDescription.innerHTML = `<strong>Categoria:</strong> ${category.strCategory}`;
+        categoryDiv.appendChild(categoryDescription);
+
+        // Create and append the description (p)
+        const categoryDetails = document.createElement("p");
+        categoryDetails.innerHTML = `<strong>Cozinha:</strong> ${category.strCategoryDescription}`;
+        categoryDiv.appendChild(categoryDetails);
+
+        // Cria e anexa a imagem da categoria (img)
+        const categoryImage = document.createElement("img");
+        categoryImage.src = category.strCategoryThumb;
+        categoryImage.alt = category.strCategory;
+        categoryImage.width = 300;
+        categoryDiv.appendChild(categoryImage);
+
+        // Anexar o div da categoria criada ao container de refeições
+        mealContainer.appendChild(categoryDiv);
+        });
+    } else {
+        // If no categories are found
+        mealContainer.innerHTML = `<p>No categories found</p>`;
     }
 }
 
@@ -23,13 +88,11 @@ function renderMeal(data) {
             <p><strong>Cozinha:</strong> ${meal.strArea}</p>
             <img src="${meal.strMealThumb}" alt="${meal.strMeal}" width="300">
             <h3>Ingredientes</h3>
-            <ul>
                 ${renderIngredients(meal)}
-            </ul>
             <h3>Instruções</h3>
-            <p>${meal.strInstructions}</p>
-            <a href="${meal.strYoutube}" target="_blank">Ver no YouTube</a><br>
-            <a href="${meal.strSource}" target="_blank">Fonte Original</a>
+            <p id="instructions">${meal.strInstructions}</p>
+            <button href="${meal.strYoutube}" >Ver no YouTube</button><br>
+            <button href="${meal.strSource}" target="_blank">Fonte Original</button>
         </div>
     `;
 }
@@ -46,4 +109,10 @@ function renderIngredients(meal) {
     return ingredientsHTML;
 }
 
+<<<<<<< HEAD
 document.getElementById('randomMeal').addEventListener('click', fetchRandomMeal);
+=======
+// Chamar a função para buscar e exibir uma refeição aleatória
+document.getElementById('randomMeal').addEventListener('click', fetchRandomMeal);
+document.getElementById('categories').addEventListener('click', fetchCategories);
+>>>>>>> 52f0a32dfa207d5e0f9db832ff75aa5ef86ca49a
