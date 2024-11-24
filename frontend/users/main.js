@@ -109,10 +109,8 @@ function renderIngredients(meal) {
     return ingredientsHTML;
 }
 
-<<<<<<< HEAD
+
 document.getElementById('randomMeal').addEventListener('click', fetchRandomMeal);
-=======
-// Chamar a função para buscar e exibir uma refeição aleatória
+
 document.getElementById('randomMeal').addEventListener('click', fetchRandomMeal);
 document.getElementById('categories').addEventListener('click', fetchCategories);
->>>>>>> 52f0a32dfa207d5e0f9db832ff75aa5ef86ca49a
