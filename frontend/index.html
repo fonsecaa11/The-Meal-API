@@ -10,35 +10,26 @@
 </head>
 
 <body>
-    <form id="form">
-        <div>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
-        </div>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="form">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Login</button>
+        </form>
+    </div>
+    
 
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-
-        <button type="submit">Login</button>
-    </form>
-
-        <h1>Receita</h1>
-        <button id="randomMeal">randomMeal</button>
-        <div id="meal-container" style="text-align: center;">
-        </div>
-
-        <!---- <h1>Receita</h1>
-        <div id="meal-container">
-            <button id="randomMeal">Receita Aleatoria</button>
-
-        </div> -->
-
-        <script src="api/API.js"></script>
-        <script src="api/Auth.js"></script>
-        <script src="functions.js"></script>
-        <script src="main.js"></script>
+    <script src="api/API.js"></script>
+    <script src="api/Auth.js"></script>
+    <script src="functions.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>

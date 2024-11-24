@@ -1,15 +1,3 @@
-table {
-    width: 100%;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-th, td {
-    padding: 15px;
-}
-
 body{
     background-color: #012A36;
     color:white;
@@ -65,7 +53,56 @@ head{
     margin-left: 675px;
 }
 
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+}
 
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    border-color: #4a90e2;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4a90e2;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #357ab7;
+}
 
 
 
