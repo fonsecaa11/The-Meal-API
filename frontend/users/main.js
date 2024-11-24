@@ -46,5 +46,4 @@ function renderIngredients(meal) {
     return ingredientsHTML;
 }
 
-// Chamar a função para buscar e exibir uma refeição aleatória
-fetchRandomMeal();
+document.getElementById('randomMeal').addEventListener('click', fetchRandomMeal);
