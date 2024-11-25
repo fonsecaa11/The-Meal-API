@@ -1,14 +1,15 @@
+*{
+    text-align: center;
+}
+
 body{
     background-color: #012A36;
     color:white;
     align-items: center;
     justify-content: center;
-
+    
 }
 
-head{
-    align-items: center;
-}
 
 #randomMeal{
     background-color: #D8DBE2;
