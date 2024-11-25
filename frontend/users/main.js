@@ -107,8 +107,5 @@ function renderIngredients(meal) {
     return ingredientsHTML;
 }
 
-
-document.getElementById('randomMeal').addEventListener('click', fetchRandomMeal);
-
 document.getElementById('randomMeal').addEventListener('click', fetchRandomMeal);
 document.getElementById('categories').addEventListener('click', fetchCategories);
