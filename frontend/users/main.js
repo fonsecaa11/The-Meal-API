@@ -16,8 +16,6 @@ async function fetchCategories() {
         const response = await fetch('https://www.themealdb.com/api/json/v1/1/categories.php');
         const data = await response.json();
 
-        console.log(data);
-
         if (data.categories && data.categories.length > 0) {
             renderCategories(data);
         } else {
